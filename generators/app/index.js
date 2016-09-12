@@ -7,7 +7,7 @@ module.exports = yeoman.Base.extend({
   prompting: function () {
     // Have Yeoman greet the user.
     this.log(yosay(
-      'Welcome to ' + chalk.green('OPEN Kaposvár GTFS Feed') + ' generator!'
+      'Welcome to ' + chalk.green('GTFS Feed Generator') + ' by OPEN Kaposvár!'
     ));
 
     var prompts = [
@@ -15,25 +15,29 @@ module.exports = yeoman.Base.extend({
         type: 'input',
         name: 'agencyName',
         message: "Please provide the transit agency's name",
-        default: "Kaposvári Tömegközlekedési Zrt."
+        default: "Kaposvári Tömegközlekedési Zrt.",
+        store: true
       },
       {
         type: 'input',
         name: 'agencyId',
         message: "Please provide the transit agency's id",
-        default: "KTZrt"
+        default: "KTZrt",
+        store: true
       },
       {
         type: 'input',
         name: 'agencyUrl',
         message: "Please provide the transit agency's website",
-        default: "http://kaposbusz.hu"
+        default: "http://kaposbusz.hu",
+        store: true
       },
       {
         type: 'input',
         name: 'agencyTZ',
         message: "Please provide the timezone of operation",
-        default: "Europe/Budapest"
+        default: "Europe/Budapest",
+        store: true
       }
     ];
 
