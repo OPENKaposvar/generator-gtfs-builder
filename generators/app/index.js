@@ -13,6 +13,12 @@ module.exports = yeoman.Base.extend({
     var prompts = [
       {
         type: 'input',
+        name: 'author',
+        message: "Please tell me your name",
+        store: true
+      },
+      {
+        type: 'input',
         name: 'agencyName',
         message: "Please provide the transit agency's name",
         default: "Kaposvári Tömegközlekedési Zrt.",
@@ -69,6 +75,15 @@ module.exports = yeoman.Base.extend({
       this.destinationPath('gulpfile.js'),
       {
         agencyId: this.props.agencyId
+      }
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('_package.json'),
+      this.destinationPath('package.json'),
+      {
+        author: this.props.author,
+        agencyName: this.props.agencyName
       }
     );
 

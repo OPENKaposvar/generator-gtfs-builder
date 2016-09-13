@@ -1,0 +1,35 @@
+{
+  "name": "ktrt-gtfs",
+  "version": "1.0.0",
+  "description": "<%= agencyName %> Public GTFS Feed",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OPENKaposvar/ktrt-gtfs.git"
+  },
+  "keywords": [
+    "GTFS",
+    "transit",
+    "feed",
+    "schedule"
+  ],
+  "author": "<%= author %>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/OPENKaposvar/ktrt-gtfs/issues"
+  },
+  "homepage": "https://github.com/OPENKaposvar/ktrt-gtfs#readme",
+  "devDependencies": {
+    "del": "^2.2.2",
+    "gtfs2geojson": "^2.0.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-file-process": "^1.0.1",
+    "gulp-open": "^2.0.0",
+    "gulp-util": "^3.0.7",
+    "gulp-zip": "^3.2.0"
+  }
+}
