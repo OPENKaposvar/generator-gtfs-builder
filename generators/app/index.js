@@ -63,6 +63,19 @@ module.exports = yeoman.Base.extend({
         timeZone: this.props.agencyTZ
       }
     );
+
+    this.fs.copyTpl(
+      this.templatePath('_gulpfile.js'),
+      this.destinationPath('gulpfile.js'),
+      {
+        agencyId: this.props.agencyId
+      }
+    );
+
+    this.fs.copy(
+      this.templatePath('_validator'),
+      this.destinationPath('validator')
+    );
   },
 
   install: function () {
