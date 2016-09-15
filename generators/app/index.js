@@ -2,6 +2,7 @@
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
+var validator = require('validator');
 
 module.exports = yeoman.Base.extend({
   prompting: function () {
@@ -15,6 +16,9 @@ module.exports = yeoman.Base.extend({
         type: 'input',
         name: 'author',
         message: "Please tell me your name",
+        validate: function(value) {
+          return 0 < value.length;
+        },
         store: true
       },
       {
@@ -22,6 +26,9 @@ module.exports = yeoman.Base.extend({
         name: 'agencyName',
         message: "Please provide the transit agency's name",
         default: "Kaposvári Tömegközlekedési Zrt.",
+        validate: function(value) {
+          return 0 < value.length;
+        },
         store: true
       },
       {
@@ -36,6 +43,9 @@ module.exports = yeoman.Base.extend({
         name: 'agencyUrl',
         message: "Please provide the transit agency's website",
         default: "http://kaposbusz.hu",
+        validate: function(value) {
+          return validator.isURL(value, { protocols: [ 'http', 'https' ]});
+        },
         store: true
       },
       {
