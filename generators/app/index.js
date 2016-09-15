@@ -40,6 +40,23 @@ module.exports = yeoman.Base.extend({
       },
       {
         type: 'input',
+        name: 'agencyPhone',
+        message: "Please provide the agency's phone number",
+        default: "+36 (82) 411 750",
+        store: true
+      },
+      {
+        type: 'input',
+        name: 'agencyLang',
+        message: "Please provide the agency's primary language (ISO 2 letter language codes, pls)",
+        default: "hu",
+        validate: function(value) {
+          return 2 === value.length
+        },
+        store: true
+      },
+      {
+        type: 'input',
         name: 'agencyTZ',
         message: "Please provide the timezone of operation",
         default: "Europe/Budapest",
@@ -66,6 +83,8 @@ module.exports = yeoman.Base.extend({
         agencyId: this.props.agencyId,
         agencyName: this.props.agencyName,
         agencyUrl: this.props.agencyUrl,
+        agencyPhone: this.props.agencyPhone,
+        agencyLang: this.props.agencyLang,
         timeZone: this.props.agencyTZ
       }
     );

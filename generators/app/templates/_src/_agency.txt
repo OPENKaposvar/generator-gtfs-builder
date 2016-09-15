@@ -1,2 +1,2 @@
 agency_id, agency_name,agency_url,agency_timezone,agency_phone,agency_lang
-<%= agencyId %>,"<%= agencyName %>",<%= agencyUrl %>,<%= timeZone %>,+36(82)411 750,hu
+<%= agencyId %>,"<%= agencyName %>",<%= agencyUrl %>,<%= timeZone %>,<%= agencyPhone %>,<%= agencyLang %>
