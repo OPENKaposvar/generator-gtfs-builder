@@ -36,6 +36,9 @@ module.exports = yeoman.Base.extend({
         name: 'agencyId',
         message: "Please provide the transit agency's id",
         default: "KTZrt",
+        validate: function(value) {
+          return validator.isAlphanumeric(value) && validator.isLength(value, { min: 3 });
+        },
         store: true
       },
       {
