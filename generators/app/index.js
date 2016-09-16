@@ -1,35 +1,30 @@
-'use strict';
-var yeoman = require('yeoman-generator');
-var chalk = require('chalk');
-var yosay = require('yosay');
-var validator = require('validator');
+const yeoman = require('yeoman-generator');
+const chalk = require('chalk');
+const yosay = require('yosay');
+const validator = require('validator');
 
 module.exports = yeoman.Base.extend({
   prompting: function () {
     // Have Yeoman greet the user.
     this.log(yosay(
-      'Welcome to ' + chalk.green('GTFS Feed Generator') + ' by OPEN Kaposvár!'
+      `Welcome to ${chalk.green('GTFS Feed Generator')} by OPEN Kaposvár!`
     ));
 
-    var prompts = [
+    const prompts = [
       {
         type: 'input',
         name: 'author',
-        message: "Please tell me your name",
-        validate: function(value) {
-          return 0 < value.length;
-        },
-        store: true
+        message: 'Please tell me your name',
+        validate: value => value.length > 0,
+        store: true,
       },
       {
         type: 'input',
         name: 'agencyName',
         message: "Please provide the transit agency's name",
         default: "Kaposvári Tömegközlekedési Zrt.",
-        validate: function(value) {
-          return 0 < value.length;
-        },
-        store: true
+        validate: value => value.length > 0,
+        store: true,
       },
       {
         type: 'input',
