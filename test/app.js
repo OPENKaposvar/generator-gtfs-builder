@@ -1,69 +1,72 @@
-'use strict';
-var path = require('path');
-var assert = require('yeoman-assert');
-var helpers = require('yeoman-test');
+/* global describe b:true */
+/* global before b:true */
+/* global it b:true */
 
-var props = {
-  author: "Test Author",
-  agencyName: "Test Agency",
-  agencyId: "AgencyLtd",
-  agencyUrl: "https://agency.com/",
-  agencyTZ: "Europe/Budapest"
+const path = require('path');
+const assert = require('yeoman-assert');
+const helpers = require('yeoman-test');
+
+const props = {
+  author: 'Test Author',
+  agencyName: 'Test Agency',
+  agencyId: 'AgencyLtd',
+  agencyUrl: 'https://agency.com/',
+  agencyTZ: 'Europe/Budapest',
 };
 
-describe('generator-gtfs-builder:app', function () {
-  describe('when every input is properly provided', function() {
-    before(function () {
-      return helpers.run(path.join(__dirname, '../generators/app'))
+describe('generator-gtfs-builder:app', () => {
+  describe('when every input is properly provided', () => {
+    before(() =>
+      helpers.run(path.join(__dirname, '../generators/app'))
         .withPrompts({
           author: props.author,
           agencyName: props.agencyName,
           agencyId: props.agencyId,
           agencyUrl: props.agencyUrl,
-          agencyTZ: props.agencyTZ
+          agencyTZ: props.agencyTZ,
         })
-        .toPromise();
-    });
+        .toPromise()
+    );
 
-    it('creates files', function () {
+    it('creates files', () => {
       assert.file([
         'gulpfile.js',
         'package.json',
         'validator/feedvalidator.py',
         'src/headers/shapes.txt',
-        //'src/headers/stops.txt',
-        //'src/headers/trips.txt',
-        'src/agency.txt'
+        // 'src/headers/stops.txt',
+        // 'src/headers/trips.txt',
+        'src/agency.txt',
       ]);
     });
 
-    it('feed is not generated', function () {
+    it('feed is not generated', () => {
       assert.noFile([
-        props.agencyId + '.zip'
+        `${props.agencyId}.zip`,
       ]);
     });
 
-    it('package name is properly set in gulpfile', function() {
-      assert.fileContent('gulpfile.js', "var packageName = '" + props.agencyId + ".zip';");
+    it('package name is properly set in gulpfile', () => {
+      assert.fileContent('gulpfile.js', `var packageName = '${props.agencyId}.zip';`);
     });
 
-    it("gulpfile contains a task named 'clean'", function() {
+    it("gulpfile contains a task named 'clean'", () => {
       assert.fileContent('gulpfile.js', "gulp.task('clean'");
     });
 
-    it("gulpfile contains a task named 'combine'", function() {
+    it("gulpfile contains a task named 'combine'", () => {
       assert.fileContent('gulpfile.js', "gulp.task('combine'");
     });
 
-    it("gulpfile contains a task named 'validate'", function() {
+    it("gulpfile contains a task named 'validate'", () => {
       assert.fileContent('gulpfile.js', "gulp.task('validate'");
     });
 
-    it("gulpfile contains a task named 'package'", function() {
+    it("gulpfile contains a task named 'package'", () => {
       assert.fileContent('gulpfile.js', "gulp.task('package'");
     });
 
-    it("gulpfile contains a task named 'geojson'", function() {
+    it("gulpfile contains a task named 'geojson'", () => {
       assert.fileContent('gulpfile.js', "gulp.task('geojson'");
     });
   });
