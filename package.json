@@ -23,14 +23,14 @@
     "validator": "^5.7.0",
     "yeoman-generator": "^0.24.1",
     "yosay": "^1.2.0",
-    "gulp": "^3.9.0",
+    "gulp": "^3.9.1",
     "gulp-eslint": "^3.0.1",
     "gulp-exclude-gitignore": "^1.0.0",
-    "gulp-istanbul": "^1.0.0",
+    "gulp-istanbul": "^1.1.1",
     "gulp-line-ending-corrector": "^1.0.1",
     "gulp-mocha": "^3.0.1",
-    "gulp-nsp": "^2.1.0",
-    "gulp-plumber": "^1.0.0"
+    "gulp-nsp": "^2.4.2",
+    "gulp-plumber": "^1.1.0"
   },
   "devDependencies": {
     "eslint": "^3.1.1",

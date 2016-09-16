@@ -16,7 +16,10 @@ gulp.task('static', () =>
 );
 
 gulp.task('nsp', (cb) => {
-  nsp({ package: path.resolve('package.json') }, cb);
+  nsp({
+    package: path.resolve('package.json'),
+    stopOnError: false,
+  }, cb);
 });
 
 gulp.task('pre-test', () =>
