@@ -13,6 +13,7 @@ gulp.task('static', () =>
     .pipe(excludeGitignore())
     .pipe(eslint({ configFile: '.eslintrc.json' }))
     .pipe(eslint.format())
+    .pipe(eslint.failAfterError())
 );
 
 gulp.task('nsp', (cb) => {
