@@ -48,7 +48,7 @@ describe('generator-gtfs-builder:app', () => {
     });
 
     it('package name is properly set in gulpfile', () => {
-      assert.fileContent('gulpfile.js', `var packageName = '${props.agencyId}.zip';`);
+      assert.fileContent('gulpfile.js', `const packageName = '${props.agencyId}.zip';`);
     });
 
     it("gulpfile contains a task named 'clean'", () => {
