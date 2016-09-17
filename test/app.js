@@ -1,6 +1,7 @@
 /* global describe b:true */
 /* global before b:true */
 /* global it b:true */
+/* eslint import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */
 
 const path = require('path');
 const assert = require('yeoman-assert');
