@@ -46,4 +46,4 @@ gulp.task('test', ['pre-test'], (cb) => {
 gulp.task('watch', () => gulp.watch(['generators/**/*.js', 'test/**'], ['test']));
 
 gulp.task('prepublish', ['nsp']);
-gulp.task('default', ['test']);
+gulp.task('default', ['static', 'test']);
