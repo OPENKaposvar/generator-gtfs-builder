@@ -13,7 +13,6 @@ gulp.task('static', () =>
     .pipe(excludeGitignore())
     .pipe(eslint({ configFile: '.eslintrc.json' }))
     .pipe(eslint.format())
-    .pipe(eslint.failAfterError())
 );
 
 gulp.task('nsp', (cb) => {
@@ -46,4 +45,4 @@ gulp.task('test', ['pre-test'], (cb) => {
 gulp.task('watch', () => gulp.watch(['generators/**/*.js', 'test/**'], ['test']));
 
 gulp.task('prepublish', ['nsp']);
-gulp.task('default', ['test']);
+gulp.task('default', ['static', 'test']);
