@@ -1,10 +1,11 @@
+/* eslint import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */
 const yeoman = require('yeoman-generator');
 const chalk = require('chalk');
 const yosay = require('yosay');
 const validator = require('validator');
 
 module.exports = yeoman.Base.extend({
-  prompting: function () {
+  prompting() {
     // Have Yeoman greet the user.
     this.log(yosay(
       `Welcome to ${chalk.green('GTFS Feed Generator')} by OPEN Kaposvár!`
@@ -22,7 +23,7 @@ module.exports = yeoman.Base.extend({
         type: 'input',
         name: 'agencyName',
         message: "Please provide the transit agency's name",
-        default: "Kaposvári Tömegközlekedési Zrt.",
+        default: 'Kaposvári Tömegközlekedési Zrt.',
         validate: value => value.length > 0,
         store: true,
       },
@@ -30,55 +31,50 @@ module.exports = yeoman.Base.extend({
         type: 'input',
         name: 'agencyId',
         message: "Please provide the transit agency's id",
-        default: "KTZrt",
-        validate: function(value) {
-          return validator.isAlphanumeric(value) && validator.isLength(value, { min: 3 });
-        },
-        store: true
+        default: 'KTZrt',
+        validate: value =>
+          validator.isAlphanumeric(value) && validator.isLength(value, { min: 3 }),
+        store: true,
       },
       {
         type: 'input',
         name: 'agencyUrl',
         message: "Please provide the transit agency's website",
-        default: "http://kaposbusz.hu",
-        validate: function(value) {
-          return validator.isURL(value, { protocols: [ 'http', 'https' ]});
-        },
-        store: true
+        default: 'http://kaposbusz.hu',
+        validate: value => validator.isURL(value, { protocols: ['http', 'https'] }),
+        store: true,
       },
       {
         type: 'input',
         name: 'agencyPhone',
         message: "Please provide the agency's phone number",
-        default: "+36 (82) 411 750",
-        store: true
+        default: '+36 (82) 411 750',
+        store: true,
       },
       {
         type: 'input',
         name: 'agencyLang',
-        message: "Please provide the agency's primary language (ISO 2 letter language codes, pls)",
-        default: "hu",
-        validate: function(value) {
-          return 2 === value.length
-        },
-        store: true
+        message: "Please provide the agency's primary language (ISO 2 letter language code)",
+        default: 'hu',
+        validate: value => value.length === 2,
+        store: true,
       },
       {
         type: 'input',
         name: 'agencyTZ',
-        message: "Please provide the timezone of operation",
-        default: "Europe/Budapest",
-        store: true
-      }
+        message: 'Please provide the timezone of operation',
+        default: 'Europe/Budapest',
+        store: true,
+      },
     ];
 
-    return this.prompt(prompts).then(function (props) {
+    return this.prompt(prompts).then((props) => {
       // To access props later use this.props.someAnswer;
       this.props = props;
-    }.bind(this));
+    });
   },
 
-  writing: function () {
+  writing() {
     this.fs.copy(
       this.templatePath('_src/_headers/_shapes.txt'),
       this.destinationPath('src/headers/shapes.txt')
@@ -93,7 +89,7 @@ module.exports = yeoman.Base.extend({
         agencyUrl: this.props.agencyUrl,
         agencyPhone: this.props.agencyPhone,
         agencyLang: this.props.agencyLang,
-        timeZone: this.props.agencyTZ
+        timeZone: this.props.agencyTZ,
       }
     );
 
@@ -101,7 +97,7 @@ module.exports = yeoman.Base.extend({
       this.templatePath('_gulpfile.js'),
       this.destinationPath('gulpfile.js'),
       {
-        agencyId: this.props.agencyId
+        agencyId: this.props.agencyId,
       }
     );
 
@@ -110,7 +106,7 @@ module.exports = yeoman.Base.extend({
       this.destinationPath('package.json'),
       {
         author: this.props.author,
-        agencyName: this.props.agencyName
+        agencyName: this.props.agencyName,
       }
     );
 
@@ -120,9 +116,9 @@ module.exports = yeoman.Base.extend({
     );
   },
 
-  install: function () {
+  install() {
     this.installDependencies({
-      bower: false
+      bower: false,
     });
-  }
+  },
 });
