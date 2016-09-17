@@ -76,12 +76,12 @@ module.exports = yeoman.Base.extend({
 
   writing() {
     this.fs.copy(
-      this.templatePath('_src/_headers/_shapes.txt'),
+      this.templatePath('src/headers/shapes.txt'),
       this.destinationPath('src/headers/shapes.txt')
     );
 
     this.fs.copyTpl(
-      this.templatePath('_src/_agency.txt'),
+      this.templatePath('src/agency.txt'),
       this.destinationPath('src/agency.txt'),
       {
         agencyId: this.props.agencyId,
@@ -94,7 +94,7 @@ module.exports = yeoman.Base.extend({
     );
 
     this.fs.copyTpl(
-      this.templatePath('_gulpfile.js'),
+      this.templatePath('gulpfile.js'),
       this.destinationPath('gulpfile.js'),
       {
         agencyId: this.props.agencyId,
@@ -102,7 +102,7 @@ module.exports = yeoman.Base.extend({
     );
 
     this.fs.copyTpl(
-      this.templatePath('_package.json'),
+      this.templatePath('package.json'),
       this.destinationPath('package.json'),
       {
         author: this.props.author,
@@ -111,7 +111,7 @@ module.exports = yeoman.Base.extend({
     );
 
     this.fs.copy(
-      this.templatePath('_validator'),
+      this.templatePath('validator'),
       this.destinationPath('validator')
     );
   },
