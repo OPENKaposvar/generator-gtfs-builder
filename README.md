@@ -1,4 +1,4 @@
-# generator-gtfs-builder [![NPM version][npm-image]][npm-url] [![Build Status](https://travis-ci.org/OPENKaposvar/generator-gtfs-builder.svg?branch=devel)](https://travis-ci.org/OPENKaposvar/generator-gtfs-builder) [![Dependency Status][daviddm-image]][daviddm-url]
+# generator-gtfs-builder [![NPM version][npm-image]][npm-url] [![Build Status](https://travis-ci.org/OPENKaposvar/generator-gtfs-builder.svg?branch=devel)](https://travis-ci.org/OPENKaposvar/generator-gtfs-builder) [![Coverage Status](https://coveralls.io/repos/github/OPENKaposvar/generator-gtfs-builder/badge.svg?branch=devel)](https://coveralls.io/github/OPENKaposvar/generator-gtfs-builder?branch=devel) [![Dependency Status][daviddm-image]][daviddm-url]
 > GTFS Feed Builder by OPEN Kaposvar
 
 ## About OPEN Kaposvár GTFS Feed Builder
